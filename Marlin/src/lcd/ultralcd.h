@@ -31,6 +31,10 @@
   #include "../sd/cardreader.h"
 #endif
 
+#if ENABLED(DWIN_LCM_ONBOARD_BUZZER)
+  #include "../lcd/dwin/lcdAutoUI.h"
+#endif
+
 #if EITHER(HAS_LCD_MENU, ULTIPANEL_FEEDMULTIPLY)
   #define HAS_ENCODER_ACTION 1
 #endif

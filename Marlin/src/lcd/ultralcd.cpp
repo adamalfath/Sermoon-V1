@@ -87,8 +87,6 @@ constexpr uint8_t epps = ENCODER_PULSES_PER_STEP;
     #endif
   }
 #elif ENABLED(DWIN_LCM_ONBOARD_BUZZER)
-  /* Use DWIN LCM onboard buzzer */
-  #include "../lcd/dwin/lcdAutoUI.h"
   void MarlinUI::buzz(const long duration, const uint16_t freq) {
     gLcdAutoUI.BuzzerOut(duration, freq);
   }
