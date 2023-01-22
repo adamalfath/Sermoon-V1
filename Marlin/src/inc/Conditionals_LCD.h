@@ -597,6 +597,7 @@
 
 #if ENABLED(DWIN_CREALITY_LCD)
   #define SERIAL_CATCHALL 0
+  #define DWIN_LCM_ONBOARD_BUZZER
 #endif
 
 // Pressure sensor with a BLTouch-like interface

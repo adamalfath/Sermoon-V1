@@ -855,6 +855,10 @@ class LcdAutoUIStruct_t
         */
         void DisplayText(char* _str, unsigned long _dataAdress);
         /**
+        * buzzer out
+        */
+        void BuzzerOut(int _duration, int _frequency);
+        /**
          * enable/disable dynamic icon
          */
         void SetStaDynamicIcon(bool _en, unsigned long _iconAdress);

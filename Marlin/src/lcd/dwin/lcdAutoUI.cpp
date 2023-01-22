@@ -3708,6 +3708,30 @@ void LcdAutoUIStruct_t::DisplayText(char* _str, unsigned long _dataAdress)
 }
 
 /**
+ * [LcdAutoUIStruct_t::BuzzerOut :buzzer out]
+ * @Author Adam Alfath
+ * @Time   2023-01-22
+ * @param  _duration  [buzz duration in ms]
+ * @param  _frequency [buzzer frequency in Hz]
+ */
+void LcdAutoUIStruct_t::BuzzerOut(int _duration, int _frequency)
+{
+    /* Divide by 8 according to DWIN guide */
+    _duration /= 8;
+
+    /* Duration register only accept max of 0x00FF (?) */
+    if (_duration > 0xFF)
+    {
+        _duration = 0xFF;
+    }
+
+    /* Cannot change frequency using serial command (?) */
+    _frequency = 0;
+
+    rtscheck.RTS_SndData(_duration, SoundAddr);
+}
+
+/**
  * [SetStaDynamicIcon :enable/disable dynamic icon]
  * @Author Creality
  * @Time   2021-06-01
