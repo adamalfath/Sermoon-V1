@@ -107,6 +107,13 @@ void GcodeSuite::M25() {
       #endif
     #endif
 
+    #if ENABLED(DWIN_LCM_ONBOARD_BUZZER)
+      /* Trigger UI pause event */
+      if (gLcdAutoUI.AutoUIGetStatus() != DEVSTA_PRINT_PAUSE) {
+        gLcdAutoUI.AutoUIVirKeyEvent(TOUVAR_PIC014_PRINT_PAUSE, 0);
+      }
+    #endif
+
   #endif
 }
 
