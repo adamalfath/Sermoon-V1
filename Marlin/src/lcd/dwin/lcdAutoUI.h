@@ -143,6 +143,7 @@
 #define TEXTVAR_ADDR_PRINT_SIZE             0x4390
 #define TEXTVAR_ADDR_DEVICE_NAME            0x43B0
 #define TEXTVAR_ADDR_OFFICIAL_WEB           0x43D0
+#define TEXTVAR_ADDR_MESSAGE                0x43F0
 
 /**
  * Error tips
@@ -186,6 +187,11 @@ Connect to serial monitor.If reading is 0,condition is open.If too high,conditio
  */
 #define GCODE_FILE_BYTELEN                  32                  /* length of gcode filename */
 #define GCODE_FILE_NUM_MAX                  20                  /* max number of gcode file */
+
+/**
+ * status message
+ */
+#define STATUS_MESSAGE_BYTELEN              18
 
 /**
  * selected status

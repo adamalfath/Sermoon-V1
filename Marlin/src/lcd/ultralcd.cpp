@@ -1574,6 +1574,27 @@ void MarlinUI::update() {
   //
   void MarlinUI::set_status(const char * const message, const bool) {
     TERN(HOST_PROMPT_SUPPORT, host_action_notify(message), UNUSED(message));
+
+    /* Customized DWIN LCM status message implementation */ 
+    
+    const char* pend = message + strlen(message);
+
+    while ((pend - message) > STATUS_MESSAGE_BYTELEN) {
+      --pend;
+      while (!(((*pend) & 0xC0u) != 0x80u)) --pend;
+    };
+
+    uint8_t maxLen = pend - message;
+    char lcm_message[STATUS_MESSAGE_BYTELEN + 1];
+      
+    strncpy(lcm_message, message, maxLen);
+    lcm_message[maxLen] = '\0';
+    
+    for(uint32_t i=0; i<STATUS_MESSAGE_BYTELEN; i++)
+      gLcdAutoUI.DisplayData(0, TEXTVAR_ADDR_MESSAGE + i);
+    gLcdAutoUI.DisplayText(lcm_message, TEXTVAR_ADDR_MESSAGE);
+    
+    /* end of implementation */
   }
   void MarlinUI::set_status_P(PGM_P message, const int8_t) {
     TERN(HOST_PROMPT_SUPPORT, host_action_notify_P(message), UNUSED(message));
