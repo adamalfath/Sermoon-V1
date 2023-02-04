@@ -1256,6 +1256,18 @@ void ClearCurPrintTime(void)
 }
 
 /**
+ * [ClearCurMessage :clear current status message]
+ * @Author Adam Alfath
+ * @Time   2023-01-28
+ */
+void ClearCurMessage(void)
+{
+    for(uint32_t i=0; i<STATUS_MESSAGE_BYTELEN; i++)
+        gLcdAutoUI.DisplayData(0, TEXTVAR_ADDR_MESSAGE + i);
+    gLcdAutoUI.DisplayText((char*)"---", TEXTVAR_ADDR_MESSAGE);
+}
+
+/**
  * [RefreshCurPosDisplay :refresh current position that display on screen]
  * @Author Creality
  * @Time   2021-06-16
@@ -1579,9 +1591,10 @@ void AutoUIPrintStart(void)
 
     /* clear command in queue */
     queue.clear();
-    /* clear current printing progress and time */
+    /* clear current printing progress, time and message */
     ClearCurPrintProgress();
     ClearCurPrintTime();
+    ClearCurMessage();
 
     /* change device status to 'DEVSTA_HEATING' */
     gLcdAutoUI.AutoUIToStatus(DEVSTA_HEATING);
@@ -2535,9 +2548,10 @@ static void TouVarPrintFinishPic015(void)
 {
     gLcdAutoUI.SwitchBackgroundPic(AUTOUI_MAIN_WINDOW);
 
-    /* clear current printing progress and time */
+    /* clear current printing progress, time and message */
     ClearCurPrintProgress();
     ClearCurPrintTime();
+    ClearCurMessage();
 }
 
 static void TouVarBoxFanPic016(void)
