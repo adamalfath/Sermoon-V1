@@ -475,7 +475,7 @@ public:
   #else // No LCD
 
     // Send status to host as a notification
-    static void set_status(const char* message, const bool=false);
+    static void set_status(const char* message, const bool persist=false);
     static void set_status_P(PGM_P message, const int8_t=0);
     static void status_printf_P(const uint8_t, PGM_P message, ...);
 

@@ -1572,11 +1572,13 @@ void MarlinUI::update() {
   //
   // Send the status line as a host notification
   //
-  void MarlinUI::set_status(const char * const message, const bool) {
+  void MarlinUI::set_status(const char * const message, const bool persist) {
     TERN(HOST_PROMPT_SUPPORT, host_action_notify(message), UNUSED(message));
 
     /* Customized DWIN LCM status message implementation */ 
     
+    if (!persist) return;
+
     const char* pend = message + strlen(message);
 
     while ((pend - message) > STATUS_MESSAGE_BYTELEN) {
