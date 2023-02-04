@@ -2487,7 +2487,7 @@
 /**
  * firmware type selected currently
  */
-#define FIRMWARE_TYPE                       FIRTYPE_SERMOONV1_STA
+#define FIRMWARE_TYPE                       FIRTYPE_SERMOONV1_MOD
 
 #if FIRMWARE_TYPE == FIRTYPE_SERMOONV1_STA
   #define MACHINE_NAME_DWIN                   "Sermoon V1"
@@ -2501,6 +2501,12 @@
   #define HARDWAREVERSION                     "V200"
   #define SOFTVERSION                         "Ver 3.0.33"
   // #define SCREENVERSION                       "Ver 3.0.6"
+  #define ENABLE_MATERIAL_CHECK               1                   /* 1: enable material check, 0: disable material check   */
+  #define ENABLE_DOOR_OPEN_CHECK              1                   /* 1: enable door-open check, 0: disable door-open check */
+#elif FIRMWARE_TYPE == FIRTYPE_SERMOONV1_MOD
+  #define MACHINE_NAME_DWIN                   "Sermoon V1 Mod"
+  #define HARDWAREVERSION                     "V200"
+  #define SOFTVERSION                         "V3.1.0-MOD"
   #define ENABLE_MATERIAL_CHECK               1                   /* 1: enable material check, 0: disable material check   */
   #define ENABLE_DOOR_OPEN_CHECK              1                   /* 1: enable door-open check, 0: disable door-open check */
 #endif
