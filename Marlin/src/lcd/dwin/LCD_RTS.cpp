@@ -22,7 +22,9 @@
 #include "../../../Configuration.h"
 #include "../../libs/BL24CXX.h"
 #include "../../feature/powerloss.h"
-#include "../../debug/debug.h"
+#if ENABLE_DEBUG_FUNC
+  #include "../debug/debug.h"
+#endif
 
 #if ENABLED(BLTOUCH)
   #include "endstops.h"

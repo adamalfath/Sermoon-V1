@@ -472,7 +472,7 @@
 #define HEATER_5_MAXTEMP 275
 #define HEATER_6_MAXTEMP 275
 #define HEATER_7_MAXTEMP 275
-#define BED_MAXTEMP      90
+#define BED_MAXTEMP      100
 
 //===========================================================================
 //============================= PID Settings ================================
@@ -2476,13 +2476,14 @@
 /**
  * enable/disable debug function
  */
-#define ENABLE_DEBUG_FUNC     1     /* 0:disable, 1:enable */
+#define ENABLE_DEBUG_FUNC     0     /* 0:disable, 1:enable */
 
 /**
  * firmware type
  */
 #define FIRTYPE_SERMOONV1_STA               0
 #define FIRTYPE_SERMOONV1_PRO               1
+#define FIRTYPE_SERMOONV1_MOD               2
 
 /**
  * firmware type selected currently
@@ -2506,7 +2507,7 @@
 #elif FIRMWARE_TYPE == FIRTYPE_SERMOONV1_MOD
   #define MACHINE_NAME_DWIN                   "Sermoon V1 Mod"
   #define HARDWAREVERSION                     "V200"
-  #define SOFTVERSION                         "V3.1.0-MOD"
+  #define SOFTVERSION                         "V3.1.1-MOD"
   #define ENABLE_MATERIAL_CHECK               1                   /* 1: enable material check, 0: disable material check   */
   #define ENABLE_DOOR_OPEN_CHECK              1                   /* 1: enable door-open check, 0: disable door-open check */
 #endif

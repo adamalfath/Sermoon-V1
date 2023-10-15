@@ -19,7 +19,7 @@
 #define CLOHEATMR_TIME                      (5*60*1000)         /* how long the close-heater-timer set               */
 #define PRINT_RECOVER_EXTERA_E_POS          (-3)                /* print recovery out extera material                */
 #define MAX_TEMP_HOTEND                     250                 /* max temperature of hotend                         */
-#define MAX_TEMP_BED                        80                  /* max temperature of bed                            */
+#define MAX_TEMP_BED                        100                 /* max temperature of bed                            */
 
 /**
  * address of icon variable about language
